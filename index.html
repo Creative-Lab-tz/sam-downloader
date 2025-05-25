@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sam Downloader</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .btns {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      color: green;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sam Downloader</h2>
+    <input type="text" id="videoUrl" placeholder="Weka YouTube URL hapa..." />
+    <div class="btns">
+      <button onclick="download('video')">Pakua Video</button>
+      <button onclick="download('audio')">Pakua Audio</button>
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function download(type) {
+      const url = document.getElementById("videoUrl").value.trim();
+      const result = document.getElementById("result");
+
+      if (!url || (!url.includes("youtube.com") && !url.includes("youtu.be"))) {
+        result.style.color = "red";
+        result.innerText = "⚠️ Tafadhali weka link sahihi ya YouTube.";
+        return;
+      }
+
+      // Placeholder – actual download needs backend
+      result.style.color = "green";
+      result.innerText = `✅ ${type === "video" ? "Video" : "Audio"} inatayarishwa kutoka: ${url}\n(Backend inahitajika kukamilisha kazi.)`;
+    }
+  </script>
+</body>
+</html>
